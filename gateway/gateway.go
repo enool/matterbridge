@@ -1,6 +1,7 @@
 package gateway
 
 import (
+	"encoding/base64"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -171,6 +172,13 @@ func (gw *Gateway) mapChannelConfig(cfg []config.Bridge, direction string) {
 		// make sure to lowercase irc channels in config #348
 		if strings.HasPrefix(br.Account, "irc.") {
 			br.Channel = strings.ToLower(br.Channel)
+		}
+		if br.ChannelB64 != "" {
+			ch, err := base64.StdEncoding.DecodeString(br.ChannelB64)
+			if err != nil {
+				gw.logger.Errorf("Channel base64 failure: %#v", err)
+			}
+			br.Channel = string(ch)
 		}
 		if strings.HasPrefix(br.Account, "mattermost.") && strings.HasPrefix(br.Channel, "#") {
 			gw.logger.Errorf("Mattermost channels do not start with a #: remove the # in %s", br.Channel)

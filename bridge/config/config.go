@@ -183,6 +183,7 @@ type ChannelOptions struct {
 type Bridge struct {
 	Account     string
 	Channel     string
+	ChannelB64  string
 	Options     ChannelOptions
 	SameChannel bool
 }

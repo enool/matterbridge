@@ -86,7 +86,7 @@ func (b *Birc) handleJoinPart(client *girc.Client, event girc.Event) {
 		b.Log.Debugf("handleJoinPart: empty Params? %#v", event)
 		return
 	}
-	channel := strings.ToLower(event.Params[0])
+	channel := event.Params[0]
 	if event.Command == "KICK" && event.Params[1] == b.Nick {
 		b.Log.Infof("Got kicked from %s by %s", channel, event.Source.Name)
 		time.Sleep(time.Duration(b.GetInt("RejoinDelay")) * time.Second)
@@ -188,7 +188,7 @@ func (b *Birc) handlePrivMsg(client *girc.Client, event girc.Event) {
 
 	rmsg := config.Message{
 		Username: event.Source.Name,
-		Channel:  strings.ToLower(event.Params[0]),
+		Channel:  event.Params[0],
 		Account:  b.Account,
 		UserID:   event.Source.Ident + "@" + event.Source.Host,
 	}

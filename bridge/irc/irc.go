@@ -96,6 +96,7 @@ func (b *Birc) Connect() error {
 	i.Handlers.Add(girc.RPL_ENDOFMOTD, b.handleOtherAuth)
 	i.Handlers.Add(girc.ERR_NOMOTD, b.handleOtherAuth)
 	i.Handlers.Add(girc.ALL_EVENTS, b.handleOther)
+	i.Handlers.Add(girc.TOPIC, b.handleTopic)
 	b.i = i
 
 	go b.doConnect()

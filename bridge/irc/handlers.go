@@ -263,3 +263,7 @@ func (b *Birc) handleTopicWhoTime(client *girc.Client, event girc.Event) {
 	}
 	b.Log.Debugf("%s: Topic set by %s [%s]", event.Command, user, time.Unix(t, 0))
 }
+
+func (b *Birc) handleTopic(client *girc.Client, event girc.Event) {
+	b.handlePrivMsg(client, event)
+}

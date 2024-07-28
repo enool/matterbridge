@@ -391,9 +391,7 @@ func (e *Event) Bytes() []byte {
 		}
 	}
 
-	// If we truncated in the middle of a utf8 character, we need to remove
-	// the other (now invalid) bytes.
-	out := bytes.ToValidUTF8(buffer.Bytes(), nil)
+	out := buffer.Bytes()
 
 	// Strip newlines and carriage returns.
 	for i := 0; i < len(out); i++ {

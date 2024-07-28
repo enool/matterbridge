@@ -19,7 +19,7 @@ require (
 	github.com/keybase/go-keybase-chat-bot v0.0.0-20221220212439-e48d9abd2c20
 	github.com/kyokomi/emoji/v2 v2.2.13
 	github.com/labstack/echo/v4 v4.12.0
-	github.com/lrstanley/girc v0.0.0-20240519163535-a518c5b87a79
+	github.com/lrstanley/girc v0.0.0-20240616011702-3842a067bedc
 	github.com/matterbridge/Rocket.Chat.Go.SDK v0.0.0-20211016222428-79310a412696
 	github.com/matterbridge/go-xmpp v0.0.0-20240523230155-7154bfeb76e8
 	github.com/matterbridge/gomatrix v0.0.0-20220411225302-271e5088ea27
@@ -149,5 +149,6 @@ require (
 )
 
 //replace github.com/matrix-org/gomatrix => github.com/matterbridge/gomatrix v0.0.0-20220205235239-607eb9ee6419
+replace github.com/lrstanley/girc v0.0.0-20240616011702-3842a067bedc => github.com/enool/girc v0.0.1
 
 go 1.22.0

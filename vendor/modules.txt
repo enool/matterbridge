@@ -204,7 +204,7 @@ github.com/labstack/echo/v4/middleware
 github.com/labstack/gommon/bytes
 github.com/labstack/gommon/color
 github.com/labstack/gommon/log
-# github.com/lrstanley/girc v0.0.0-20240519163535-a518c5b87a79
+# github.com/lrstanley/girc v0.0.0-20240616011702-3842a067bedc => github.com/enool/girc v0.0.1
 ## explicit; go 1.18
 github.com/lrstanley/girc
 github.com/lrstanley/girc/internal/ctxgroup

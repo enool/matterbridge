@@ -382,8 +382,6 @@ func sliceInsert(input []string, i int, v ...string) []string {
 //
 // maximum width.
 func splitMessage(input string, maxWidth int) (output []string) {
-	input = strings.ToValidUTF8(input, "?")
-
 	words := strings.FieldsFunc(strings.TrimSpace(input), func(r rune) bool {
 		switch r { // Same as unicode.IsSpace, but without ctrl/lf.
 		case '\t', '\v', '\f', ' ', 0x85, 0xA0:
@@ -519,8 +517,5 @@ func splitMessage(input string, maxWidth int) (output []string) {
 		goto checkappend
 	}
 
-	for i := 0; i < len(output); i++ {
-		output[i] = strings.ToValidUTF8(output[i], "?")
-	}
 	return output
 }
